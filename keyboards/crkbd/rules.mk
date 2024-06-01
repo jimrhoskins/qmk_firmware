@@ -11,3 +11,4 @@ RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes
 SRC += custom_keycodes.c
 CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
