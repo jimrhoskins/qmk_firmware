@@ -35,13 +35,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
-
-
-
-
 const uint16_t PROGMEM combo_qw[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_jk[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_fj[] = {LSFT_T(KC_F), RSFT_T(KC_J), COMBO_END};
+const uint16_t PROGMEM combo_jk[] = {RSFT_T(KC_J), RGUI_T(KC_K), COMBO_END};
+const uint16_t PROGMEM combo_cv[] = {KC_C, KC_V, COMBO_END};
 combo_t key_combos[] = {
     COMBO(combo_qw, CW_TOGG),
+    COMBO(combo_fj, CW_TOGG),
+    COMBO(combo_cv, KC_TAB),
     COMBO(combo_jk, KC_ESC), // keycodes with modifiers are possible too!
 };
