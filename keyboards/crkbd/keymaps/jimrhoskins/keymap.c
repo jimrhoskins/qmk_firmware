@@ -11,7 +11,7 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ALPHAS] = LAYOUT_split_3x5_3_ex2(
-        KC_Q,         KC_W,         KC_E,         KC_R,               KC_T,    KC_TRNS, KC_TRNS,    KC_Y,          KC_U,           KC_I,         KC_O,         KC_P,
+        KC_Q,         KC_W,         KC_E,         KC_R,               KC_T,    KC_Z,    KC_A,       KC_Y,          KC_U,           KC_I,         KC_O,         KC_P,
         LALT_T(KC_A), LCTL_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F),       KC_G,    KC_BTN3, KC_MUTE,    KC_H,          RSFT_T(KC_J),   RGUI_T(KC_K), RCTL_T(KC_L), RALT_T(KC_SCLN),
         KC_Z,         KC_X,         KC_C,         KC_V,               KC_B,                         KC_N,          KC_M,           KC_COMM,      KC_DOT,       KC_SLSH,
                                     KC_MEH,       LT(SYMNUM,KC_QUOT), KC_LSFT,                      LSFT(KC_BSPC), LT(NAV,KC_SPC), MO(META)
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-#ifdef ENCODER_MAP_ENABLE
+#if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [ALPHAS] = {
         ENCODER_CCW_CW(KC_A, KC_B), // Left Top
