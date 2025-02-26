@@ -10,11 +10,11 @@ enum layers {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[ALPHAS] = LAYOUT_split_3x5_3(
-        KC_Q,         KC_W,         KC_E,         KC_R,               KC_T,    KC_Y,          KC_U,           KC_I,         KC_O,         KC_P,
-        LALT_T(KC_A), LCTL_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F),       KC_G,    KC_H,          RSFT_T(KC_J),   RGUI_T(KC_K), RCTL_T(KC_L), RALT_T(KC_SCLN),
-        KC_Z,         KC_X,         KC_C,         KC_V,               KC_B,    KC_N,          KC_M,           KC_COMM,      KC_DOT,       KC_SLSH,
-                                    KC_MEH,       LT(SYMNUM,KC_QUOT), KC_LSFT, LSFT(KC_BSPC), LT(NAV,KC_SPC), MO(META)
+	[ALPHAS] = LAYOUT_split_3x5_3_ex2(
+        KC_Q,         KC_W,         KC_E,         KC_R,               KC_T,    KC_TRNS, KC_TRNS,    KC_Y,          KC_U,           KC_I,         KC_O,         KC_P,
+        LALT_T(KC_A), LCTL_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F),       KC_G,    KC_BTN3, KC_MUTE,    KC_H,          RSFT_T(KC_J),   RGUI_T(KC_K), RCTL_T(KC_L), RALT_T(KC_SCLN),
+        KC_Z,         KC_X,         KC_C,         KC_V,               KC_B,                         KC_N,          KC_M,           KC_COMM,      KC_DOT,       KC_SLSH,
+                                    KC_MEH,       LT(SYMNUM,KC_QUOT), KC_LSFT,                      LSFT(KC_BSPC), LT(NAV,KC_SPC), MO(META)
     ),
 	[SYMNUM] = LAYOUT_split_3x5_3(
         KC_EXLM,         KC_AT,           KC_HASH,         KC_DLR,          KC_PERC,   KC_PLUS,  KC_7,         KC_8,         KC_9,         KC_UNDS,
@@ -43,11 +43,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-#if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
+#ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [ALPHAS] = {
+        ENCODER_CCW_CW(KC_A, KC_B), // Left Top
+        ENCODER_CCW_CW(KC_WH_U, KC_WH_D), // Left Bottom
+        ENCODER_CCW_CW(KC_E, KC_F), // Right Top
+        ENCODER_CCW_CW(KC_VOLD, KC_VOLU), // Right Bottom
+    },
+    [SYMNUM] = {
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    },
+    [NAV] = {
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    },
+    [META] = {
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    },
+    [FUNC] = {
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+        ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+    },
 
 };
-#endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
+#endif
 
 const uint16_t PROGMEM combo_fj[] = {LSFT_T(KC_F), RSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM combo_jk[] = {RSFT_T(KC_J), RGUI_T(KC_K), COMBO_END};
